@@ -116,13 +116,13 @@ export const PipelineSection = () => {
     const ctx = gsap.context(() => {
       // Header reveal
       gsap.from(headerRef.current, {
-        y: 80,
+        y: 30,
         opacity: 0,
-        duration: 1.2,
+        duration: 0.6,
         ease: "power4.out",
         scrollTrigger: {
           trigger: headerRef.current,
-          start: "top 85%",
+          start: "top 95%",
         },
       });
 
@@ -176,15 +176,15 @@ export const PipelineSection = () => {
 
         if (innerCard) {
           gsap.from(innerCard, {
-            y: 100,
+            y: 40,
             opacity: 0,
             rotateX: 8,
             scale: 0.95,
-            duration: 1.2,
+            duration: 0.6,
             ease: "power4.out",
             scrollTrigger: {
               trigger: card,
-              start: "top 85%",
+              start: "top 95%",
             },
           });
         }
@@ -202,12 +202,12 @@ export const PipelineSection = () => {
         gsap.from(terminalLines, {
           x: -20,
           opacity: 0,
-          stagger: 0.12,
-          duration: 0.5,
+          stagger: 0.05,
+          duration: 0.4,
           ease: "power2.out",
           scrollTrigger: {
             trigger: card,
-            start: "top 70%",
+            start: "top 90%",
           },
         });
 
@@ -217,11 +217,11 @@ export const PipelineSection = () => {
           y: 20,
           opacity: 0,
           stagger: 0.1,
-          duration: 0.6,
+          duration: 0.4,
           ease: "back.out(2)",
           scrollTrigger: {
             trigger: card,
-            start: "top 75%",
+            start: "top 90%",
           },
         });
 

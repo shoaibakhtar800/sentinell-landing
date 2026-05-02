@@ -288,41 +288,41 @@ export const FeaturesSection = () => {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(headerRef.current, {
-        y: 60,
+        y: 30,
         opacity: 0,
-        duration: 1,
+        duration: 0.6,
         ease: "power4.out",
         scrollTrigger: {
           trigger: headerRef.current,
-          start: "top 85%",
+          start: "top 95%",
         },
       });
 
       cardsRef.current.forEach((card) => {
         if (!card) return;
         gsap.from(card, {
-          y: 60,
+          y: 30,
           opacity: 0,
           scale: 0.97,
-          duration: 0.9,
+          duration: 0.5,
           ease: "power4.out",
           scrollTrigger: {
             trigger: card,
-            start: "top 90%",
+            start: "top 95%",
           },
         });
 
         const visual = card.querySelector(".feature-visual");
         if (visual) {
           gsap.from(visual, {
-            y: 15,
+            y: 10,
             opacity: 0,
-            duration: 0.7,
-            delay: 0.2,
+            duration: 0.4,
+            delay: 0.1,
             ease: "power3.out",
             scrollTrigger: {
               trigger: card,
-              start: "top 82%",
+              start: "top 90%",
             },
           });
         }

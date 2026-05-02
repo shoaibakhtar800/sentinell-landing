@@ -42,16 +42,16 @@ const features = [
     visual: (
       <div className="rounded-2xl bg-black/30 border border-white/[0.06] p-5 font-mono text-xs space-y-1.5 overflow-hidden">
         <div className="flex items-center gap-2 text-white/30 mb-3">
-          <div className="w-2 h-2 rounded-full bg-cyan-400" />
+          <div className="w-2 h-2 rounded-full bg-white/80" />
           <span className="uppercase tracking-widest text-[9px]">
             sentinell.profile.json
           </span>
         </div>
         <div className="text-white/30">{"{"}</div>
-        <div className="pl-4 text-cyan-400/80">{`"framework": "Next.js 16",`}</div>
-        <div className="pl-4 text-cyan-400/80">{`"orm": "Prisma 7.4",`}</div>
-        <div className="pl-4 text-cyan-400/80">{`"auth": "Better-Auth",`}</div>
-        <div className="pl-4 text-cyan-400/80">{`"patterns": ["event-driven", "TRPC"]`}</div>
+        <div className="pl-4 text-zinc-400">{`"framework": "Next.js 16",`}</div>
+        <div className="pl-4 text-zinc-400">{`"orm": "Prisma 7.4",`}</div>
+        <div className="pl-4 text-zinc-400">{`"auth": "Better-Auth",`}</div>
+        <div className="pl-4 text-zinc-400">{`"patterns": ["event-driven", "TRPC"]`}</div>
         <div className="text-white/30">{"}"}</div>
       </div>
     ),
@@ -112,7 +112,7 @@ const features = [
           { Icon: FaGitlab, label: "GitLab" },
         ].map(({ Icon, label }) => (
           <div key={label} className="flex flex-col items-center gap-2">
-            <div className="w-12 h-12 rounded-xl bg-white/4 border border-white/8 flex items-center justify-center hover:border-violet-500/30 hover:bg-violet-500/10 transition-all duration-300">
+            <div className="w-12 h-12 rounded-xl bg-white/4 border border-white/8 flex items-center justify-center hover:border-white/20 hover:bg-white/5 transition-all duration-300">
               <Icon className="w-5 h-5 text-white/40" />
             </div>
             <span className="text-[9px] text-white/30 font-mono uppercase tracking-wider">
@@ -133,10 +133,10 @@ const features = [
       <div className="flex flex-col items-center gap-3">
         <div className="relative">
           <Shield className="w-14 h-14 text-white/[0.06]" />
-          <Lock className="w-5 h-5 text-rose-400/60 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+          <Lock className="w-5 h-5 text-zinc-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
         </div>
         <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.06]">
-          <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+          <div className="w-1.5 h-1.5 rounded-full bg-white/80 animate-pulse" />
           <span className="text-[9px] font-mono text-white/40 uppercase tracking-widest">
             Encrypted
           </span>
@@ -156,17 +156,17 @@ const features = [
           {
             status: "✓",
             text: "pr.review.requested",
-            color: "text-emerald-400/70",
+            color: "text-white/60",
           },
           {
             status: "⟳",
             text: "review.step.profiling",
-            color: "text-sky-400/70",
+            color: "text-zinc-400",
           },
           {
             status: "⟳",
             text: "review.step.analysis",
-            color: "text-sky-400/70",
+            color: "text-zinc-400",
           },
           { status: "—", text: "review.completed", color: "text-white/20" },
         ].map((ev) => (
@@ -243,40 +243,40 @@ const accentMap: Record<
   { border: string; text: string; bg: string; glow: string }
 > = {
   cyan: {
-    border: "border-cyan-500/20",
-    text: "text-cyan-400",
-    bg: "bg-cyan-500/10",
-    glow: "hover:shadow-[0_0_40px_rgba(6,182,212,0.08)]",
+    border: "border-zinc-500/20",
+    text: "text-zinc-300",
+    bg: "bg-zinc-500/10",
+    glow: "hover:shadow-[0_0_40px_rgba(255,255,255,0.05)]",
   },
   amber: {
-    border: "border-amber-500/20",
-    text: "text-amber-400",
-    bg: "bg-amber-500/10",
-    glow: "hover:shadow-[0_0_40px_rgba(245,158,11,0.08)]",
+    border: "border-zinc-500/20",
+    text: "text-zinc-300",
+    bg: "bg-zinc-500/10",
+    glow: "hover:shadow-[0_0_40px_rgba(255,255,255,0.05)]",
   },
   violet: {
-    border: "border-violet-500/20",
-    text: "text-violet-400",
-    bg: "bg-violet-500/10",
-    glow: "hover:shadow-[0_0_40px_rgba(139,92,246,0.08)]",
+    border: "border-zinc-500/20",
+    text: "text-zinc-300",
+    bg: "bg-zinc-500/10",
+    glow: "hover:shadow-[0_0_40px_rgba(255,255,255,0.05)]",
   },
   emerald: {
-    border: "border-emerald-500/20",
-    text: "text-emerald-400",
-    bg: "bg-emerald-500/10",
-    glow: "hover:shadow-[0_0_40px_rgba(16,185,129,0.08)]",
+    border: "border-zinc-500/20",
+    text: "text-zinc-300",
+    bg: "bg-zinc-500/10",
+    glow: "hover:shadow-[0_0_40px_rgba(255,255,255,0.05)]",
   },
   rose: {
-    border: "border-rose-500/20",
-    text: "text-rose-400",
-    bg: "bg-rose-500/10",
-    glow: "hover:shadow-[0_0_40px_rgba(244,63,94,0.08)]",
+    border: "border-zinc-500/20",
+    text: "text-zinc-300",
+    bg: "bg-zinc-500/10",
+    glow: "hover:shadow-[0_0_40px_rgba(255,255,255,0.05)]",
   },
   sky: {
-    border: "border-sky-500/20",
-    text: "text-sky-400",
-    bg: "bg-sky-500/10",
-    glow: "hover:shadow-[0_0_40px_rgba(14,165,233,0.08)]",
+    border: "border-zinc-500/20",
+    text: "text-zinc-300",
+    bg: "bg-zinc-500/10",
+    glow: "hover:shadow-[0_0_40px_rgba(255,255,255,0.05)]",
   },
 };
 

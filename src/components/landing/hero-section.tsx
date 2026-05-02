@@ -101,7 +101,7 @@ export const HeroSection = () => {
           <Button
             asChild
             size="lg"
-            className="h-14 px-8 rounded-2xl text-lg font-bold shadow-[0_0_40px_rgba(var(--primary),0.2)] group transition-all"
+            className="w-full sm:w-auto h-14 px-8 rounded-2xl text-lg font-bold shadow-[0_0_40px_rgba(var(--primary),0.2)] group transition-all"
           >
             <Link href={APP_URL}>
               Start Free Trial
@@ -120,7 +120,7 @@ export const HeroSection = () => {
 
         <div
           ref={statsRef}
-          className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/5 pt-12"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 border-t border-white/5 pt-12"
         >
           {[
             { label: "AI Confidence", value: "99.9%" },

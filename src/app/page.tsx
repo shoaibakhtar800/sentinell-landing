@@ -28,7 +28,7 @@ export default function Home() {
 
       {/* CTA Section */}
       <section className="py-32 px-6">
-        <div className="max-w-5xl mx-auto p-12 md:p-24 rounded-[3.5rem] bg-foreground text-background text-center relative overflow-hidden">
+        <div className="max-w-5xl mx-auto py-16 px-6 md:p-24 rounded-[3.5rem] bg-foreground text-background text-center relative overflow-hidden">
           {/* Background effects */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent" />
           <div
@@ -42,7 +42,7 @@ export default function Home() {
 
           <div className="relative z-10 space-y-8">
             <h2 className="text-4xl md:text-7xl font-bold tracking-tighter leading-[0.95]">
-              Ready to secure <br /> your codebase?
+              Ready to secure <br className="hidden md:block" /> your codebase?
             </h2>
             <p className="text-lg md:text-xl opacity-60 max-w-xl mx-auto font-medium">
               Start reviewing every PR with architectural intelligence. Free to

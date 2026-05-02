@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { GitPullRequest, Brain, ShieldCheck, ArrowDown, Terminal } from "lucide-react";
+import { GitPullRequest, Brain, ShieldCheck, Terminal } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -251,10 +251,10 @@ export const PipelineSection = () => {
     >
       {/* Ambient Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[150px]" />
-        <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-white/[0.01] rounded-full blur-[150px]" />
+        <div className="absolute top-1/4 left-0 w-125 h-125 bg-white/2 rounded-full blur-[150px]" />
+        <div className="absolute bottom-1/4 right-0 w-125 h-125 bg-white/1 rounded-full blur-[150px]" />
         <div
-          className="absolute inset-0 opacity-[0.015] pointer-events-none"
+          className="absolute inset-0 opacity-2 pointer-events-none"
           style={{
             backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px)",
           }}
@@ -266,14 +266,14 @@ export const PipelineSection = () => {
         <div ref={headerRef} className="text-center mb-24 space-y-6">
           <Badge
             variant="outline"
-            className="border-white/10 bg-white/[0.03] text-muted-foreground uppercase tracking-[0.3em] text-[10px] font-bold px-4 py-1.5"
+            className="border-white/10 bg-white/3 text-muted-foreground uppercase tracking-[0.3em] text-[10px] font-bold px-4 py-1.5"
           >
             <Terminal className="w-3 h-3 mr-2" />
             Execution Pipeline
           </Badge>
           <h2 className="text-4xl md:text-7xl font-bold tracking-tighter leading-[0.95]">
             Three Stages. <br />
-            <span className="bg-gradient-to-r from-foreground via-foreground/60 to-foreground/20 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-foreground via-foreground/60 to-foreground/20 bg-clip-text text-transparent">
               Zero Blind Spots.
             </span>
           </h2>
@@ -289,13 +289,13 @@ export const PipelineSection = () => {
           {/* ── Vertical Track (Desktop) ── */}
           {/* Background track line — always visible */}
           <div
-            className="absolute top-0 bottom-0 w-[1px] bg-white/[0.06] hidden lg:block"
+            className="absolute top-0 bottom-0 w-px bg-white/6 hidden lg:block"
             style={{ left: `${TIMELINE_LEFT}px` }}
           />
           {/* Animated progress line — grows on scroll */}
           <div
             ref={progressRef}
-            className="absolute top-0 bottom-0 w-[2px] hidden lg:block"
+            className="absolute top-0 bottom-0 w-0.5 hidden lg:block"
             style={{
               left: `${TIMELINE_LEFT - 0.5}px`,
               transformOrigin: "top",
@@ -315,7 +315,7 @@ export const PipelineSection = () => {
           >
             <div className="w-full h-full rounded-full bg-white/90 blur-[1px]" />
             <div
-              className="absolute inset-[-8px] rounded-full"
+              className="absolute -inset-2 rounded-full"
               style={{
                 background: "radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)",
               }}
@@ -348,7 +348,7 @@ export const PipelineSection = () => {
                     {/* Outer ring pulse when active */}
                     {isActive && (
                       <div
-                        className={`absolute inset-[-6px] rounded-full ${colors.border} border-2 animate-ping opacity-30`}
+                        className={`absolute -inset-1.5 rounded-full ${colors.border} border-2 animate-ping opacity-30`}
                       />
                     )}
                     <div
@@ -359,7 +359,7 @@ export const PipelineSection = () => {
                   {/* ── Card ── */}
                   <div 
                     ref={(el) => { innerCardsRef.current[i] = el; }}
-                    className={`rounded-3xl border ${colors.border} bg-white/[0.02] backdrop-blur-sm p-8 md:p-10 ${colors.glow} hover:bg-white/[0.04] transition-all duration-500 group lg:ml-8`}
+                    className={`rounded-3xl border ${colors.border} bg-white/2 backdrop-blur-sm p-8 md:p-10 ${colors.glow} hover:bg-white/4 transition-all duration-500 group lg:ml-8`}
                   >
                     <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
                       {/* Left: Info */}
@@ -393,8 +393,8 @@ export const PipelineSection = () => {
 
                       {/* Right: Terminal */}
                       <div className="lg:col-span-3">
-                        <div className="rounded-2xl bg-black/40 border border-white/[0.06] overflow-hidden backdrop-blur-md">
-                          <div className="flex items-center gap-2 px-4 py-3 border-b border-white/[0.06] bg-white/[0.02]">
+                        <div className="rounded-2xl bg-black/40 border border-white/6 overflow-hidden backdrop-blur-md">
+                          <div className="flex items-center gap-2 px-4 py-3 border-b border-white/6 bg-white/2">
                             <div className="w-3 h-3 rounded-full bg-red-500/60" />
                             <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
                             <div className="w-3 h-3 rounded-full bg-green-500/60" />
@@ -432,13 +432,13 @@ export const PipelineSection = () => {
                 height: `${END_DOT_SIZE}px`,
               }}
             >
-              <div className="absolute inset-[-4px] rounded-full border-2 border-white/20 animate-ping opacity-20" />
+              <div className="absolute -inset-1 rounded-full border-2 border-white/20 animate-ping opacity-20" />
               <div className="w-full h-full rounded-full border-2 border-white/40 bg-white/10 flex items-center justify-center relative z-10">
                 <ShieldCheck className="w-3 h-3 text-white" />
               </div>
             </div>
             {/* End message */}
-            <div className="lg:ml-8 rounded-2xl border border-white/20 bg-white/[0.03] p-6 text-center backdrop-blur-sm">
+            <div className="lg:ml-8 rounded-2xl border border-white/20 bg-white/3 p-6 text-center backdrop-blur-sm">
               <span className="text-white font-bold text-sm tracking-wider uppercase">
                 ✓ Review Complete — Results Delivered to Your PR
               </span>

@@ -40,7 +40,7 @@ const features = [
     accent: "cyan",
     grid: "md:col-span-2",
     visual: (
-      <div className="rounded-2xl bg-black/30 border border-white/[0.06] p-5 font-mono text-xs space-y-1.5 overflow-hidden">
+      <div className="rounded-2xl bg-black/30 border border-white/6 p-5 font-mono text-xs space-y-1.5 overflow-hidden">
         <div className="flex items-center gap-2 text-white/30 mb-3">
           <div className="w-2 h-2 rounded-full bg-white/80" />
           <span className="uppercase tracking-widest text-[9px]">
@@ -89,7 +89,7 @@ const features = [
               <span className="text-white/50">{item.file}</span>
               <span className="text-white/30">{item.risk}</span>
             </div>
-            <div className="w-full h-1.5 rounded-full bg-white/[0.06]">
+            <div className="w-full h-1.5 rounded-full bg-white/6">
               <div
                 className={`h-full rounded-full ${item.color}/60 ${item.w}`}
               />
@@ -132,10 +132,10 @@ const features = [
     visual: (
       <div className="flex flex-col items-center gap-3">
         <div className="relative">
-          <Shield className="w-14 h-14 text-white/[0.06]" />
+          <Shield className="w-14 h-14 text-white/6" />
           <Lock className="w-5 h-5 text-zinc-400 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
         </div>
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.06]">
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/3 border border-white/6">
           <div className="w-1.5 h-1.5 rounded-full bg-white/80 animate-pulse" />
           <span className="text-[9px] font-mono text-white/40 uppercase tracking-widest">
             Encrypted
@@ -188,8 +188,8 @@ const features = [
     accent: "emerald",
     grid: "md:col-span-3",
     visual: (
-      <div className="rounded-2xl bg-black/30 border border-white/[0.06] overflow-hidden">
-        <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/[0.06] bg-white/[0.02]">
+      <div className="rounded-2xl bg-black/30 border border-white/6 overflow-hidden">
+        <div className="flex items-center gap-2 px-4 py-2.5 border-b border-white/6 bg-white/2">
           <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
           <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
@@ -221,12 +221,12 @@ const features = [
             <div className="text-white/20 text-[10px] uppercase tracking-widest mb-2">
               Sentinell Findings
             </div>
-            <div className="p-3 rounded-xl bg-red-500/[0.06] border border-red-500/10 text-red-400/80 text-[11px] leading-relaxed">
+            <div className="p-3 rounded-xl bg-red-500/6 border border-red-500/10 text-red-400/80 text-[11px] leading-relaxed">
               ⚠ <strong>Auth Bypass</strong>:{" "}
               <code className="text-white/50">action</code> param is not
               validated against user roles at L:47
             </div>
-            <div className="p-3 rounded-xl bg-amber-500/[0.06] border border-amber-500/10 text-amber-400/80 text-[11px] leading-relaxed">
+            <div className="p-3 rounded-xl bg-amber-500/6 border border-amber-500/10 text-amber-400/80 text-[11px] leading-relaxed">
               ⚡ <strong>Edge Case</strong>: Missing null check for{" "}
               <code className="text-white/50">user.session</code> — will throw
               at runtime
@@ -339,8 +339,8 @@ export const FeaturesSection = () => {
       className="py-32 px-6 relative overflow-hidden"
     >
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/[0.02] rounded-full blur-[150px]" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-white/[0.01] rounded-full blur-[150px]" />
+        <div className="absolute top-0 right-0 w-150 h-150 bg-white/2 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 left-0 w-150 h-150 bg-white/1 rounded-full blur-[150px]" />
       </div>
 
       <div className="max-w-6xl mx-auto">
@@ -348,14 +348,14 @@ export const FeaturesSection = () => {
         <div ref={headerRef} className="text-center mb-20 space-y-6">
           <Badge
             variant="outline"
-            className="border-white/10 bg-white/[0.03] text-muted-foreground uppercase tracking-[0.3em] text-[10px] font-bold px-4 py-1.5"
+            className="border-white/10 bg-white/3 text-muted-foreground uppercase tracking-[0.3em] text-[10px] font-bold px-4 py-1.5"
           >
             <BarChart3 className="w-3 h-3 mr-2" />
             Core Capabilities
           </Badge>
           <h2 className="text-4xl md:text-7xl font-bold tracking-tighter leading-[0.95]">
             Built Different. <br />
-            <span className="bg-gradient-to-r from-foreground via-foreground/60 to-foreground/20 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-foreground via-foreground/60 to-foreground/20 bg-clip-text text-transparent">
               Built to Protect.
             </span>
           </h2>
@@ -375,7 +375,7 @@ export const FeaturesSection = () => {
                 ref={(el) => {
                   cardsRef.current[i] = el;
                 }}
-                className={`${feature.grid} rounded-3xl border ${colors.border} bg-white/[0.02] p-7 ${colors.glow} hover:bg-white/[0.04] transition-all duration-500 group flex flex-col`}
+                className={`${feature.grid} rounded-3xl border ${colors.border} bg-white/2 p-7 ${colors.glow} hover:bg-white/4 transition-all duration-500 group flex flex-col`}
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div

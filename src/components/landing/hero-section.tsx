@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { Hero3D } from "./hero-3d";
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { APP_URL } from "@/lib/constants";
@@ -80,7 +80,7 @@ export const HeroSection = () => {
           className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 leading-[1.1]"
         >
           Your Code, <br />
-          <span className="bg-gradient-to-r from-foreground via-foreground/70 to-foreground/40 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-foreground via-foreground/70 to-foreground/40 bg-clip-text text-transparent">
             Perfectly Reviewed.
           </span>
         </h1>
@@ -141,7 +141,7 @@ export const HeroSection = () => {
       </div>
 
       {/* Decorative Blur */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] h-1/2 bg-gradient-to-t from-background via-transparent to-transparent -z-10" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] h-1/2 bg-linear-to-t from-background via-transparent to-transparent -z-10" />
     </section>
   );
 };

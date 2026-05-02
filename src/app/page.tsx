@@ -30,9 +30,9 @@ export default function Home() {
       <section className="py-32 px-6">
         <div className="max-w-5xl mx-auto py-16 px-6 md:p-24 rounded-[3.5rem] bg-foreground text-background text-center relative overflow-hidden">
           {/* Background effects */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-br from-white/10 via-transparent to-transparent" />
           <div
-            className="absolute inset-0 opacity-[0.03]"
+            className="absolute inset-0 opacity-3"
             style={{
               backgroundImage:
                 "radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)",

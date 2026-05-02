@@ -26,12 +26,7 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = [
-    { name: "Features", href: "#features" },
-    { name: "Pipeline", href: "#pipeline" },
-    { name: "Pricing", href: "#pricing" },
-    { name: "Docs", href: "#docs" },
-  ];
+
 
   return (
     <nav

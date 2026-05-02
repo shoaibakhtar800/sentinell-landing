@@ -91,7 +91,7 @@ export const PricingSection = () => {
     >
       {/* Ambient */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/[0.03] rounded-full blur-[200px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-primary/3 rounded-full blur-[200px]" />
       </div>
 
       <div className="max-w-6xl mx-auto">
@@ -99,14 +99,14 @@ export const PricingSection = () => {
         <div ref={headerRef} className="text-center mb-20 space-y-6">
           <Badge
             variant="outline"
-            className="border-white/10 bg-white/[0.03] text-muted-foreground uppercase tracking-[0.3em] text-[10px] font-bold px-4 py-1.5"
+            className="border-white/10 bg-white/3 text-muted-foreground uppercase tracking-[0.3em] text-[10px] font-bold px-4 py-1.5"
           >
             <CreditCard className="w-3 h-3 mr-2" />
             Pricing
           </Badge>
           <h2 className="text-4xl md:text-7xl font-bold tracking-tighter leading-[0.95]">
             Simple Pricing. <br />
-            <span className="bg-gradient-to-r from-foreground via-foreground/60 to-foreground/20 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-foreground via-foreground/60 to-foreground/20 bg-clip-text text-transparent">
               Serious Protection.
             </span>
           </h2>
@@ -130,8 +130,8 @@ export const PricingSection = () => {
                 }}
                 className={`relative rounded-3xl p-8 md:p-10 flex flex-col border transition-all duration-500 ${
                   isPopular
-                    ? "border-white/20 bg-white/[0.04]"
-                    : "border-white/[0.08] bg-white/[0.02] hover:border-white/15"
+                    ? "border-white/20 bg-white/4"
+                    : "border-white/8 bg-white/2 hover:border-white/15"
                 }`}
               >
                 {/* Popular Badge */}
@@ -159,7 +159,7 @@ export const PricingSection = () => {
                 </div>
 
                 {/* Divider */}
-                <div className="h-[1px] bg-white/[0.06] mb-8" />
+                <div className="h-px bg-white/6 mb-8" />
 
                 {/* Features */}
                 <div className="space-y-4 mb-10 flex-1">
@@ -170,9 +170,7 @@ export const PricingSection = () => {
                     >
                       <div
                         className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${
-                          isPopular
-                            ? "bg-foreground/10"
-                            : "bg-white/[0.06]"
+                          isPopular ? "bg-foreground/10" : "bg-white/6"
                         }`}
                       >
                         <Check
@@ -202,7 +200,7 @@ export const PricingSection = () => {
                   className={`w-full h-13 rounded-2xl text-base font-bold ${
                     isPopular
                       ? "bg-foreground text-background hover:bg-foreground/90"
-                      : "bg-white/[0.06] text-foreground hover:bg-white/[0.1]"
+                      : "bg-white/6 text-foreground hover:bg-white/10"
                   }`}
                 >
                   {plan.cta}

@@ -67,25 +67,25 @@ const steps = [
 
 const accentColors: Record<string, { border: string; bg: string; text: string; glow: string; dot: string }> = {
   cyan: {
-    border: "border-cyan-500/30",
-    bg: "bg-cyan-500/10",
-    text: "text-cyan-400",
-    glow: "shadow-[0_0_60px_rgba(6,182,212,0.15)]",
-    dot: "bg-cyan-400",
+    border: "border-zinc-500/30",
+    bg: "bg-zinc-500/10",
+    text: "text-zinc-300",
+    glow: "shadow-[0_0_60px_rgba(255,255,255,0.05)]",
+    dot: "bg-zinc-300",
   },
   amber: {
-    border: "border-amber-500/30",
-    bg: "bg-amber-500/10",
-    text: "text-amber-400",
-    glow: "shadow-[0_0_60px_rgba(245,158,11,0.15)]",
-    dot: "bg-amber-400",
+    border: "border-zinc-500/30",
+    bg: "bg-zinc-500/10",
+    text: "text-zinc-300",
+    glow: "shadow-[0_0_60px_rgba(255,255,255,0.05)]",
+    dot: "bg-zinc-300",
   },
   emerald: {
-    border: "border-emerald-500/30",
-    bg: "bg-emerald-500/10",
-    text: "text-emerald-400",
-    glow: "shadow-[0_0_60px_rgba(16,185,129,0.15)]",
-    dot: "bg-emerald-400",
+    border: "border-zinc-500/30",
+    bg: "bg-zinc-500/10",
+    text: "text-zinc-300",
+    glow: "shadow-[0_0_60px_rgba(255,255,255,0.05)]",
+    dot: "bg-zinc-300",
   },
 };
 
@@ -105,6 +105,7 @@ export const PipelineSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const innerCardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const timelineRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const orbRef = useRef<HTMLDivElement>(null);
@@ -132,7 +133,7 @@ export const PipelineSection = () => {
             trigger: timelineRef.current,
             start: "top 50%",
             end: "bottom 50%",
-            scrub: 0.3,
+            scrub: true,
           },
         });
 
@@ -170,19 +171,30 @@ export const PipelineSection = () => {
       // Each card: 3D entrance + terminal typewriter
       cardsRef.current.forEach((card, i) => {
         if (!card) return;
+        
+        const innerCard = innerCardsRef.current[i];
 
-        gsap.from(card, {
-          y: 100,
-          opacity: 0,
-          rotateX: 8,
-          scale: 0.95,
-          duration: 1.2,
-          ease: "power4.out",
-          scrollTrigger: {
-            trigger: card,
-            start: "top 85%",
-            onEnter: () => setActiveStep(i),
-          },
+        if (innerCard) {
+          gsap.from(innerCard, {
+            y: 100,
+            opacity: 0,
+            rotateX: 8,
+            scale: 0.95,
+            duration: 1.2,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 85%",
+            },
+          });
+        }
+
+        // Active step tracking for the glowing dot
+        ScrollTrigger.create({
+          trigger: card,
+          start: "top+=40 50%", // 40px offset because the dot is at top: 40px
+          onEnter: () => setActiveStep(i),
+          onLeaveBack: () => setActiveStep(i - 1),
         });
 
         // Terminal lines typewriter
@@ -239,8 +251,8 @@ export const PipelineSection = () => {
     >
       {/* Ambient Background */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-cyan-500/[0.03] rounded-full blur-[150px]" />
-        <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-emerald-500/[0.03] rounded-full blur-[150px]" />
+        <div className="absolute top-1/4 left-0 w-[500px] h-[500px] bg-white/[0.02] rounded-full blur-[150px]" />
+        <div className="absolute bottom-1/4 right-0 w-[500px] h-[500px] bg-white/[0.01] rounded-full blur-[150px]" />
         <div
           className="absolute inset-0 opacity-[0.015] pointer-events-none"
           style={{
@@ -287,8 +299,8 @@ export const PipelineSection = () => {
             style={{
               left: `${TIMELINE_LEFT - 0.5}px`,
               transformOrigin: "top",
-              background: "linear-gradient(to bottom, #06b6d4, #f59e0b, #10b981)",
-              boxShadow: "0 0 12px rgba(6,182,212,0.4), 0 0 24px rgba(16,185,129,0.2)",
+              background: "linear-gradient(to bottom, #ffffff, #a1a1aa, #52525b)",
+              boxShadow: "0 0 12px rgba(255,255,255,0.4), 0 0 24px rgba(255,255,255,0.2)",
             }}
           />
           {/* Glowing Orb — travels down the line */}
@@ -345,7 +357,10 @@ export const PipelineSection = () => {
                   </div>
 
                   {/* ── Card ── */}
-                  <div className={`rounded-3xl border ${colors.border} bg-white/[0.02] backdrop-blur-sm p-8 md:p-10 ${colors.glow} hover:bg-white/[0.04] transition-all duration-500 group lg:ml-8`}>
+                  <div 
+                    ref={(el) => { innerCardsRef.current[i] = el; }}
+                    className={`rounded-3xl border ${colors.border} bg-white/[0.02] backdrop-blur-sm p-8 md:p-10 ${colors.glow} hover:bg-white/[0.04] transition-all duration-500 group lg:ml-8`}
+                  >
                     <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
                       {/* Left: Info */}
                       <div className="lg:col-span-2 space-y-6">
@@ -417,14 +432,14 @@ export const PipelineSection = () => {
                 height: `${END_DOT_SIZE}px`,
               }}
             >
-              <div className="absolute inset-[-4px] rounded-full border-2 border-emerald-500/20 animate-ping opacity-20" />
-              <div className="w-full h-full rounded-full border-2 border-emerald-500/40 bg-emerald-500/20 flex items-center justify-center relative z-10">
-                <ShieldCheck className="w-3 h-3 text-emerald-400" />
+              <div className="absolute inset-[-4px] rounded-full border-2 border-white/20 animate-ping opacity-20" />
+              <div className="w-full h-full rounded-full border-2 border-white/40 bg-white/10 flex items-center justify-center relative z-10">
+                <ShieldCheck className="w-3 h-3 text-white" />
               </div>
             </div>
             {/* End message */}
-            <div className="lg:ml-8 rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.03] p-6 text-center backdrop-blur-sm">
-              <span className="text-emerald-400 font-bold text-sm tracking-wider uppercase">
+            <div className="lg:ml-8 rounded-2xl border border-white/20 bg-white/[0.03] p-6 text-center backdrop-blur-sm">
+              <span className="text-white font-bold text-sm tracking-wider uppercase">
                 ✓ Review Complete — Results Delivered to Your PR
               </span>
             </div>

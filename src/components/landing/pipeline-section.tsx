@@ -23,7 +23,10 @@ const steps = [
     terminal: [
       { type: "info", text: "▸ Scanning repository structure..." },
       { type: "success", text: "✓ 847 files indexed" },
-      { type: "info", text: "▸ Detecting tech stack: Next.js 16, TypeScript, Prisma" },
+      {
+        type: "info",
+        text: "▸ Detecting tech stack: Next.js 16, TypeScript, Prisma",
+      },
       { type: "success", text: "✓ Architecture profile generated" },
     ],
   },
@@ -39,7 +42,10 @@ const steps = [
       { label: "Accuracy", value: "99.2%" },
     ],
     terminal: [
-      { type: "warn", text: "▸ HIGH RISK: auth/middleware.ts (security boundary)" },
+      {
+        type: "warn",
+        text: "▸ HIGH RISK: auth/middleware.ts (security boundary)",
+      },
       { type: "warn", text: "▸ MEDIUM: prisma/schema.prisma (migration)" },
       { type: "info", text: "▸ LOW: components/button.tsx (UI)" },
       { type: "success", text: "✓ 3 files triaged, 1 critical" },
@@ -58,14 +64,20 @@ const steps = [
     ],
     terminal: [
       { type: "info", text: "▸ Analyzing auth/middleware.ts [hunk 1/3]..." },
-      { type: "error", text: "✗ Potential auth bypass: missing role check L:47" },
+      {
+        type: "error",
+        text: "✗ Potential auth bypass: missing role check L:47",
+      },
       { type: "warn", text: "▸ Edge case: null user session not handled L:52" },
       { type: "success", text: "✓ Review complete — 2 issues, 1 critical" },
     ],
   },
 ];
 
-const accentColors: Record<string, { border: string; bg: string; text: string; glow: string; dot: string }> = {
+const accentColors: Record<
+  string,
+  { border: string; bg: string; text: string; glow: string; dot: string }
+> = {
   cyan: {
     border: "border-zinc-500/30",
     bg: "bg-zinc-500/10",
@@ -142,7 +154,7 @@ export const PipelineSection = () => {
           progressRef.current,
           { scaleY: 0 },
           { scaleY: 1, ease: "none", duration: 1 },
-          0
+          0,
         );
 
         // Glowing orb travels from top to bottom of the timeline
@@ -150,7 +162,7 @@ export const PipelineSection = () => {
           orbRef.current,
           { top: "0%" },
           { top: "100%", ease: "none", duration: 1 },
-          0
+          0,
         );
       }
 
@@ -171,7 +183,7 @@ export const PipelineSection = () => {
       // Each card: 3D entrance + terminal typewriter
       cardsRef.current.forEach((card, i) => {
         if (!card) return;
-        
+
         const innerCard = innerCardsRef.current[i];
 
         if (innerCard) {
@@ -256,12 +268,13 @@ export const PipelineSection = () => {
         <div
           className="absolute inset-0 opacity-2 pointer-events-none"
           style={{
-            backgroundImage: "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px)",
+            backgroundImage:
+              "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px)",
           }}
         />
         {/* Section fade edges */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-32 bg-linear-to-b from-background to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-background to-transparent" />
       </div>
 
       <div className="max-w-6xl mx-auto">
@@ -274,21 +287,20 @@ export const PipelineSection = () => {
             <Terminal className="w-3 h-3 mr-2" />
             Execution Pipeline
           </Badge>
-          <h2 className="text-4xl md:text-7xl font-bold tracking-tighter leading-[0.95]">
+          <h2 className="text-4xl md:text-7xl font-bold tracking-tight leading-[0.95]">
             Three Stages. <br />
             <span className="bg-linear-to-r from-foreground via-foreground/60 to-foreground/20 bg-clip-text text-transparent">
               Zero Blind Spots.
             </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Every PR passes through an autonomous, event-driven pipeline.
-            Each stage is atomic, retriable, and cancellable in real-time.
+            Every PR passes through an autonomous, event-driven pipeline. Each
+            stage is atomic, retriable, and cancellable in real-time.
           </p>
         </div>
 
         {/* Pipeline Timeline */}
         <div ref={timelineRef} className="relative">
-
           {/* ── Vertical Track (Desktop) ── */}
           {/* Background track line — always visible */}
           <div
@@ -302,8 +314,10 @@ export const PipelineSection = () => {
             style={{
               left: `${TIMELINE_LEFT - 0.5}px`,
               transformOrigin: "top",
-              background: "linear-gradient(to bottom, #ffffff, #a1a1aa, #52525b)",
-              boxShadow: "0 0 12px rgba(255,255,255,0.4), 0 0 24px rgba(255,255,255,0.2)",
+              background:
+                "linear-gradient(to bottom, #ffffff, #a1a1aa, #52525b)",
+              boxShadow:
+                "0 0 12px rgba(255,255,255,0.4), 0 0 24px rgba(255,255,255,0.2)",
             }}
           />
           {/* Glowing Orb — travels down the line */}
@@ -320,7 +334,8 @@ export const PipelineSection = () => {
             <div
               className="absolute -inset-2 rounded-full"
               style={{
-                background: "radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)",
+                background:
+                  "radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%)",
               }}
             />
           </div>
@@ -334,7 +349,9 @@ export const PipelineSection = () => {
               return (
                 <div
                   key={step.id}
-                  ref={(el) => { cardsRef.current[i] = el; }}
+                  ref={(el) => {
+                    cardsRef.current[i] = el;
+                  }}
                   className="relative lg:pl-16"
                   style={{ transformStyle: "preserve-3d" }}
                 >
@@ -360,22 +377,30 @@ export const PipelineSection = () => {
                   </div>
 
                   {/* ── Card ── */}
-                  <div 
-                    ref={(el) => { innerCardsRef.current[i] = el; }}
+                  <div
+                    ref={(el) => {
+                      innerCardsRef.current[i] = el;
+                    }}
                     className={`rounded-3xl border ${colors.border} bg-white/2 backdrop-blur-sm p-8 md:p-10 ${colors.glow} hover:bg-white/4 transition-all duration-500 group lg:ml-8`}
                   >
                     <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
                       {/* Left: Info */}
                       <div className="lg:col-span-2 space-y-6">
                         <div className="flex items-center gap-4">
-                          <div className={`icon-box w-14 h-14 rounded-2xl ${colors.bg} ${colors.border} border flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
+                          <div
+                            className={`icon-box w-14 h-14 rounded-2xl ${colors.bg} ${colors.border} border flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}
+                          >
                             <step.icon className={`w-7 h-7 ${colors.text}`} />
                           </div>
                           <div>
-                            <div className={`text-[10px] font-bold uppercase tracking-[0.3em] ${colors.text} font-mono`}>
+                            <div
+                              className={`text-[10px] font-bold uppercase tracking-[0.3em] ${colors.text} font-mono`}
+                            >
                               {step.subtitle}
                             </div>
-                            <h3 className="text-2xl font-bold tracking-tight">{step.title}</h3>
+                            <h3 className="text-2xl font-bold tracking-tight">
+                              {step.title}
+                            </h3>
                           </div>
                         </div>
 
@@ -387,8 +412,12 @@ export const PipelineSection = () => {
                         <div className="flex gap-6 pt-2">
                           {step.stats.map((stat) => (
                             <div key={stat.label} className="space-y-1">
-                              <div className="stat-value text-2xl font-bold tracking-tighter">{stat.value}</div>
-                              <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold">{stat.label}</div>
+                              <div className="stat-value text-2xl font-bold tracking-tighter">
+                                {stat.value}
+                              </div>
+                              <div className="text-[10px] uppercase tracking-widest text-muted-foreground font-bold">
+                                {stat.label}
+                              </div>
                             </div>
                           ))}
                         </div>
@@ -407,11 +436,16 @@ export const PipelineSection = () => {
                           </div>
                           <div className="p-5 font-mono text-[13px] leading-7 space-y-1">
                             {step.terminal.map((line, j) => (
-                              <div key={j} className={`terminal-line ${terminalColors[line.type]}`}>
+                              <div
+                                key={j}
+                                className={`terminal-line ${terminalColors[line.type]}`}
+                              >
                                 {line.text}
                               </div>
                             ))}
-                            <div className="terminal-line text-white/20 animate-pulse mt-2">█</div>
+                            <div className="terminal-line text-white/20 animate-pulse mt-2">
+                              █
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -423,7 +457,10 @@ export const PipelineSection = () => {
           </div>
 
           {/* ── End Node ── */}
-          <div ref={endNodeRef} className="relative lg:pl-16 mt-12 hidden lg:block">
+          <div
+            ref={endNodeRef}
+            className="relative lg:pl-16 mt-12 hidden lg:block"
+          >
             {/* End dot — perfectly aligned */}
             <div
               className="absolute flex items-center justify-center"

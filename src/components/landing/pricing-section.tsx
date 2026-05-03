@@ -93,8 +93,8 @@ export const PricingSection = () => {
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-primary/3 rounded-full blur-[200px]" />
         {/* Section fade edges */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-32 bg-linear-to-b from-background to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-background to-transparent" />
       </div>
 
       <div className="max-w-6xl mx-auto">
@@ -107,7 +107,7 @@ export const PricingSection = () => {
             <CreditCard className="w-3 h-3 mr-2" />
             Pricing
           </Badge>
-          <h2 className="text-4xl md:text-7xl font-bold tracking-tighter leading-[0.95]">
+          <h2 className="text-4xl md:text-7xl font-bold tracking-tight leading-none">
             Simple Pricing. <br />
             <span className="bg-linear-to-r from-foreground via-foreground/60 to-foreground/20 bg-clip-text text-transparent">
               Serious Protection.

@@ -62,7 +62,7 @@ export const HeroSection = () => {
   return (
     <section
       ref={containerRef}
-      className="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-visible"
     >
       <Hero3D />
 
@@ -77,7 +77,7 @@ export const HeroSection = () => {
 
         <h1
           ref={titleRef}
-          className="text-5xl md:text-8xl font-bold tracking-tighter mb-6 leading-[1.1]"
+          className="text-5xl md:text-8xl font-bold tracking-tight mb-6 leading-tight"
         >
           Your Code, <br />
           <span className="bg-linear-to-r from-foreground via-foreground/70 to-foreground/40 bg-clip-text text-transparent">

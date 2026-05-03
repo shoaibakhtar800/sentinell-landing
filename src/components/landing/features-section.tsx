@@ -342,8 +342,8 @@ export const FeaturesSection = () => {
         <div className="absolute top-0 right-0 w-150 h-150 bg-white/2 rounded-full blur-[150px]" />
         <div className="absolute bottom-0 left-0 w-150 h-150 bg-white/1 rounded-full blur-[150px]" />
         {/* Section fade edges */}
-        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-32 bg-linear-to-b from-background to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-background to-transparent" />
       </div>
 
       <div className="max-w-6xl mx-auto">
@@ -356,7 +356,7 @@ export const FeaturesSection = () => {
             <BarChart3 className="w-3 h-3 mr-2" />
             Core Capabilities
           </Badge>
-          <h2 className="text-4xl md:text-7xl font-bold tracking-tighter leading-[0.95]">
+          <h2 className="text-4xl md:text-7xl font-bold tracking-tight leading-[0.95]">
             Built Different. <br />
             <span className="bg-linear-to-r from-foreground via-foreground/60 to-foreground/20 bg-clip-text text-transparent">
               Built to Protect.

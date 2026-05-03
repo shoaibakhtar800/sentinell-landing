@@ -5,7 +5,6 @@ import { Footer } from "@/components/landing/footer";
 import { PricingSection } from "@/components/landing/pricing-section";
 import { PipelineSection } from "@/components/landing/pipeline-section";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import { APP_URL } from "@/lib/constants";
 
@@ -15,12 +14,8 @@ export default function Home() {
       <Navbar />
       <HeroSection />
 
-      <Separator className="bg-white/5" />
-
       {/* Advanced GSAP Pipeline Section */}
       <PipelineSection />
-
-      <Separator className="bg-white/5" />
 
       <FeaturesSection />
 

@@ -129,6 +129,14 @@ export const Hero3D = () => {
           <Stardust />
         </Suspense>
       </Canvas>
+      <div
+        className="pointer-events-none absolute bottom-0 left-0 right-0 z-50"
+        style={{
+          height: "45%",
+          background:
+            "linear-gradient(to top, hsl(var(--background)) 0%, hsl(var(--background) / 0.8) 35%, hsl(var(--background) / 0.4) 65%, transparent 100%)",
+        }}
+      />
     </div>
   );
 };

@@ -120,7 +120,7 @@ export const HeroSection = () => {
 
         <div
           ref={statsRef}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 border-t border-white/5 pt-12"
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 pt-12"
         >
           {[
             { label: "AI Confidence", value: "99.9%" },
@@ -139,9 +139,6 @@ export const HeroSection = () => {
           ))}
         </div>
       </div>
-
-      {/* Decorative Blur */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[120%] h-1/2 bg-linear-to-t from-background via-transparent to-transparent -z-10" />
     </section>
   );
 };

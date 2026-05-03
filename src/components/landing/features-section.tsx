@@ -341,6 +341,9 @@ export const FeaturesSection = () => {
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 right-0 w-150 h-150 bg-white/2 rounded-full blur-[150px]" />
         <div className="absolute bottom-0 left-0 w-150 h-150 bg-white/1 rounded-full blur-[150px]" />
+        {/* Section fade edges */}
+        <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-background to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent" />
       </div>
 
       <div className="max-w-6xl mx-auto">
